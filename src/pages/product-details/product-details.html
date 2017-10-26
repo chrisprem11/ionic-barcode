@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="home"></ion-icon>
+            </button>
+    </ion-buttons>
+    <ion-title>
+      Barcode App
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goToCart()">
+        <ion-icon name="cart"><ion-badge item-end>{{cart_length}}</ion-badge></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-slides pager>
+  <ion-slide *ngFor="let images of display_product.image_data">
+    <img width="50%" height="50%" src='{{baseCloudUrl}}{{images.image_path}}'>
+  </ion-slide>
+</ion-slides>
+<ion-card-content>
+  <ion-card-title>
+    <ion-item>
+      <ion-label>
+        <h1> Name : {{display_product.name}} </h1>
+      </ion-label>
+    </ion-item>
+  </ion-card-title>
+  <ion-item>
+    <ion-label> Price : {{display_product.price}} </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label> Barcode : {{display_product.barcode}} </ion-label>
+  </ion-item>
+</ion-card-content>
+<button ion-button full (click)="addToCart(display_product)">ADD TO CART</button>
+<button ion-button full (click)="addAnotherProduct()">Add Another Product</button>
+
+</ion-content>

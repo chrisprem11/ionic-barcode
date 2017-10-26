@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons left>
+      <button ion-button (click)="goBack()">
+                <ion-icon name="arrow-back" ></ion-icon>
+              </button>
+    </ion-buttons>
+    <ion-title>
+      Order Detail
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Order Detail :</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-card *ngIf="barcodeText">
+      <ngx-qrcode [qrc-value]="barcodeText"></ngx-qrcode>
+      <ion-card-content>
+        <p>Value: {{ barcodeText }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+  <ion-item>
+    <ion-card *ngIf="barcodeTextVariantTwo">
+      <ngx-qrcode [qrc-value]="barcodeTextVariantTwo"></ngx-qrcode>
+      <ion-card-content>
+        <p>Value: {{ barcodeTextVariantTwo }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-content>

@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="home"></ion-icon>
+            </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Barcode App
     </ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button>
+        <ion-icon name="more"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item>
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button round (click)="scanBarcode()"><ion-icon name="qr-scanner"></ion-icon>&nbsp;Scan</button>
+        <div *ngIf="showText">
+          <ion-label color="primary"> Fetched Barcode Text : </ion-label>
+          <ion-label color="secondary">&nbsp;&nbsp;{{barcodeText}}</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-item>
 </ion-content>
